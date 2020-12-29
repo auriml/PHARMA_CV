@@ -1,0 +1,106 @@
+ICD10	desc	category
+I25.5	Cardiomyopathy, ischemic	Cardiovascular
+I42.0	Cardiomyopathy, dilated	Cardiovascular
+I42.1	Cardiomyopathy, hypertrophic obstructive (HOCM, IHSS)	Cardiovascular
+I42.6	Cardiomyopathy, alcoholic	Cardiovascular
+I42.7	Cardiomyopathy, due to infection, drugs or external agents NOS	Cardiovascular
+I42.9	Cardiomyopathy, NOS	Cardiovascular
+I50.0	Congestive heart failure, NOS	Cardiovascular
+I50.1	Congestive heart failure with pulmonary edema	Cardiovascular
+I50.9	Heart failure, NOS	Cardiovascular
+C78.0	Lung, metastatic malignancy to it (also code primary site)	Immunocompromised
+C78.2	Pleura, metastatic malignancy to it (also code primary site)	Immunocompromised
+C78.3	Respiratory system NOS, metastatic malignancy to it (also code primary site)	Immunocompromised
+C78.6	Peritoneum, metastatic malignancy to it (also code primary site)	Immunocompromised
+C78.7	Liver or biliary system, metastatic malignancy to it (also code primary site)	Immunocompromised
+C78.8	Gastrointestinal system NOS, metastatic malignancy to it (also code primary site)	Immunocompromised
+C79.0	Urinary system NOS, metastatic malignancy to it (also code primary site)	Immunocompromised
+C79.3	Brain or meninges, metastatic malignancy to it (also code primary site)	Immunocompromised
+C79.5	Bone or bone marrow, metastatic malignancy to it (also code primary site)	Immunocompromised
+C79.7	Adrenal gland, metastatic malignancy to it (also code primary site)	Immunocompromised
+C79.9	Site NOS, metastatic malignancy to it (also code primary site)	Immunocompromised
+C7A.0	Malignant carcinoid tumor	Immunocompromised
+C84	T-cell lymphoma	Immunocompromised
+C85.7	Non-Hodgkin's lymphoma	Immunocompromised
+C85.8	Lymphoma, NOS	Immunocompromised
+C90.0	Multiple myeloma	Immunocompromised
+C90.1	Plasma cell leukemia	Immunocompromised
+C90.21	Plasmacytoma, NOS	Immunocompromised
+C91.0	Acute lymphoblastic leukemia (ALL)	Immunocompromised
+C91.1	Chronic lymphocytic leukemia (CLL)	Immunocompromised
+C91.3	Prolymphocytic leukemia	Immunocompromised
+C91.4	Hairy cell leukemia	Immunocompromised
+C91.5	T-cell leukemia	Immunocompromised
+C91.7	Lymphoid leukemia, NOS	Immunocompromised
+C92.0	Acute myeloid leukemia (AML)	Immunocompromised
+C92.1	Chronic myeloid leukemia (CML)	Immunocompromised
+C92.4	Acute promyelocytic leukaemia (APL)	Immunocompromised
+C92.5	Acute myelomonocytic leukaemia (AMML)	Immunocompromised
+C93	Monocytic leukemia, acute or chronic	Immunocompromised
+C94.0	Acute erythroblastic leukemia (erythroleukemia)	Immunocompromised
+C94.2	Acute megakaryoblastic leukemia	Immunocompromised
+C95.0	Leukemia, NOS	Immunocompromised
+C96	Malignancy (clonal disorder) of blood or lymphoid tissue, NOS	Immunocompromised
+J70.0	Radiation pneumonitis (acute or chronic)	Immunocompromised
+K12.3	Oral mucositis	Immunocompromised
+K52.0	Colitis or enteritis or gastroenteritis, due to radiation	Immunocompromised
+K62.7	Proctitis, due to radiation	Immunocompromised
+T86.000	Bone marrow transplant, failure or rejection	Immunocompromised
+T86.001	Graft-versus-host disease/reaction (GVHD)	Immunocompromised
+T86.1	Kidney transplant, failure or rejection or unspecified complication	Immunocompromised
+T86.2	Heart transplant, failure or rejection or unspecified complication	Immunocompromised
+T86.3	Heart-lung transplant, failure or rejection or unspecified complication	Immunocompromised
+T86.4	Liver transplant, failure or rejection or unspecified complication	Immunocompromised
+T86.80	Lung transplant, failure or rejection or unspecified complication	Immunocompromised
+T86.81	Pancreas transplant, failure or rejection or unspecified complication	Immunocompromised
+T86.88	Transplanted organ NOS, failure or rejection or unspecified complication	Immunocompromised
+Z92.25	Past history of immunosuppressive drugs or corticosteroids	Immunocompromised
+Z92.3	Past history of radiation therapy	Immunocompromised
+Z92.6	Past history of chemotherapy for neoplastic disease	Immunocompromised
+Z94.0	Past history, transplanted kidney	Immunocompromised
+Z94.1	Past history, transplanted heart	Immunocompromised
+Z94.2	Past history, transplanted lung(s)	Immunocompromised
+Z94.4	Past history, transplanted liver	Immunocompromised
+Z94.80	Past history, bone marrow or stem cell transplant	Immunocompromised
+Z94.82	Past history, transplanted pancreas or islet cells	Immunocompromised
+Z94.88	Past history, organ/tissue transplant NOS	Immunocompromised
+I85.0	Esophageal varices, with hemorrhage	Liver
+I85.9	Esophageal varices, without hemorrhage	Liver
+I86.4	Gastric varices (with or without hemorrhage)	Liver
+K70.3	Liver cirrhosis, alcoholic	Liver
+K70.4	Liver failure, alcoholic, w/wo hepatic encephalopathy	Liver
+K71.1	Liver failure due to toxin/drug NOS, w/wo hepatic encephalopathy	Liver
+K72.0	Liver failure w/wo hepatic encephalopathy, acute or subacute NOS	Liver
+K72.1	Liver failure w/wo hepatic encephalopathy, chronic NOS	Liver
+K72.9	Liver failure w/wo hepatic encephalopathy, not specified as acute or chronic	Liver
+K74.3	Primary Biliary Cirrhosis (PBC)	Liver
+K74.5	Liver cirrhosis, NOS	Liver
+K76.6	Portal hypertension	Liver
+N18.5	Chronic kidney disease (end-stage renal/kidney disease, ESRD), Stage 5, GFR LT 15	Renal
+D75.1	Polycythemia, secondary	Respiratory
+I27.0	Pulmonary hypertension, primary (PPH)	Respiratory
+I27.2	Pulmonary hypertension, secondary (any cause)	Respiratory
+I27.81	Cor pulmonale (right heart failure due to lung disease without left heart failure)	Respiratory
+I27.82	Pulmonary embolism (thromboembolism), chronic	Respiratory
+I27.9	Pulmonary hypertension, NOS	Respiratory
+J42	Bronchitis, chronic, infectious or noninfectious	Respiratory
+J43.9	Pulmonary emphysema or bullous disease without COPD	Respiratory
+J44.1	COPD, acute exacerbation	Respiratory
+J44.8	COPD, without exacerbation	Respiratory
+J45.901	Asthma, acute exacerbation	Respiratory
+J45.909	Asthma, without acute exacerbation	Respiratory
+J45.91	Status asthmaticus	Respiratory
+J47	Bronchiectasis	Respiratory
+J61	Asbestos lung disease	Respiratory
+J62	Silicosis of the lung (pneumoconiosis)	Respiratory
+J64	Pneumoconiosis, NOS	Respiratory
+J66	Airway disease due to inhaled organic dust	Respiratory
+J67.90	Allergic bronchopulmonary aspergillosis (ABPA)	Respiratory
+J67.99	Hypersensitivity pneumonitis (extrinsic allergic alveoliltis), NOS	Respiratory
+J70.4	Interstitial lung disease, drug-induced (acute or chronic)	Respiratory
+J84.1	Idiopathic interstitial pulmonary fibrosis	Respiratory
+J84.89	Bronchiolitis obliterans organizing pneumonia (BOOP, cryptogenic organizing pneumonia (COP))	Respiratory
+J84.9	Interstitial lung disease, NOS	Respiratory
+J96.19	Respiratory failure (insufficiency), chronic	Respiratory
+J96.99	Respiratory failure (insufficiency) NOS, not specified as acute or chronic	Respiratory
+Z99.1	Chronic dependence on mechanical ventilator	Respiratory
