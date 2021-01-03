@@ -69,9 +69,9 @@ The code on this repository is organized in python modules:
 
 >> Clinical Scale
 
->> Vital Signs
+>> Vital Sign
 
->> Reports (natural text): Subtypes are 
+>> Report (natural text): Subtypes are 
 >>> Annanmesis -CX
 
 >>> Medical History -MH
@@ -96,9 +96,9 @@ The code on this repository is organized in python modules:
 
 >>> Destination at Discharge -Discharge 
 
->> Laboratory 
+>> Laboratory Test
 
->> Laboratory Covid
+>> Laboratory Covid Test
 
 >> Fluidotherapy
 
