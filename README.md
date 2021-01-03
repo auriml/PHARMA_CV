@@ -6,13 +6,17 @@ Source data once anonymized were provided in tables for demography, admissions a
 ## Python Modules
 The code on this repository is organized in python modules: 
 
-- Loaders.py
+- **Loaders.py**
 1. This is the first step: Read source tables, create patient objects, return a dictionary of patients and serialize patients to json files
 > PRE-REQUIREMENT: directory with source tables
 >> Read source tables into objects  (see classes representing a patient)
+
 >>Write or update a txt file for each health department wih human-readible patients represented as events ordered by time
+
 >> Write or update annotable files in TagTog format
+
 >> Profile source tables generating html reports
+
 >> Serialize patient objects into json files (see classes representing a patient)
 
 > OUT: patient_id.json
@@ -51,7 +55,7 @@ The code on this repository is organized in python modules:
  '_route',
  '_atc')* 
 
-- Classes.py:
+- **Classes.py:**
 > Class patient has attributes 'patient_id', 'age', 'gender', 'events=L(Event)'. 
 
 > Each Event has attributes 'start_date', 'end_date', 'event_type', 'event_value', 'health_dep=L(12 health departments)'. Any clinical information is modeled as an Event and hence inherits from it. There are the following type of events which expand with their own attributes: 
@@ -67,7 +71,30 @@ The code on this repository is organized in python modules:
 
 >> Vital Signs
 
->> Reports (natural text): Subtypes are Annanmesis -CX, Medical History -MH, Physical Examination -PE, Evolution -EV,Plan -Plan, Suspect Diagnoses -sDX, Primary and Secondary Diagnoses -1DX -2DX,  Procedures -PX, Surgical Procedures -QX, Treatment -TX, Recomendation -RE, Destination at Discharge -Discharge 
+>> Reports (natural text): Subtypes are 
+>>> Annanmesis -CX
+
+>>> Medical History -MH
+
+>>> Physical Examination -PE
+
+>>> Evolution -EV
+
+>>> Plan -Plan
+
+>>> Suspect Diagnoses -sDX
+
+>>> Primary and Secondary Diagnoses -1DX -2DX
+
+>>> Procedures -PX
+
+>>> Surgical Procedures -QX
+
+>>> Treatment -TX
+
+>>> Recomendation -RE
+
+>>> Destination at Discharge -Discharge 
 
 >> Laboratory 
 
@@ -78,14 +105,14 @@ The code on this repository is organized in python modules:
 >> Gasotherapy
 
 >> Medication
-- Terminology.py
+- **Terminology.py**
 >> Drugs: 2.8K drugs identified by ATC level 5.2 with their active substance and different trade/presentation names as synonym
 
 >> Medical Entities: ICD10 
-- Clinical_scales.py
+- **Clinical_scales.py**
 > Scripts to calculate Charlson and other scales
-- EDA.py
-- Utils.py
+- **EDA.py**
+- **Utils.py**
 > Utilities for value normalization, date formatting, etc,.. 
-- TagTog.py
+- **TagTog.py**
 > Utilities to generate documents for manual annotation as required in TagTog platform.
