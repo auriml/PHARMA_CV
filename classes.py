@@ -217,7 +217,7 @@ class Medication(Event):
             
         else:
             try:
-                self._dose = float(d.replace(',', '.')) 
+                self._dose = float(str(d).replace(',', '.')) 
             except:
                 self._dose = np.nan
         

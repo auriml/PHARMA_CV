@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[24]:
+# In[28]:
 
 
 from utils import *
@@ -30,7 +30,7 @@ from concurrent.futures import ProcessPoolExecutor
 # ## Create and save a single big datatable from a dictionary of patients
 # ### PRE-REQUIREMENT: preloaded dictionary of patients
 
-# In[25]:
+# In[29]:
 
 
 def patient_to_table(item):
@@ -59,7 +59,7 @@ def create_big_table(pdict, file = 'bigTable'):
 # ## Load patient objects from json files and return a dictionary of patients
 # ### PRE-REQUIREMENT: 1º step generated json files
 
-# In[5]:
+# In[30]:
 
 
 def paralleliz(dh):
@@ -85,7 +85,7 @@ def load_objects(): #read from json into patient objects and return a dictionary
 # ## 1º Step: Read source tables, create patient objects, return a dictionary of patients and serialize patients to json files
 # ### PRE-REQUIREMENT: directory with source tables 
 
-# In[8]:
+# In[31]:
 
 
 # define loaders functions one for each table as provided form source 
@@ -343,7 +343,7 @@ def drug(g,pdict ):
     return pdict
 
 
-# In[10]:
+# In[32]:
 
 
 path = Path('datos_7') #path to data tables as provided from source
@@ -351,22 +351,22 @@ list_areas = [dh.name for dh in path.iterdir() if dh.suffix == '']
 print(list_areas)
 
 
-# In[12]:
+# In[34]:
 
 
 dfs = {}
 plist = []  
 pdict = {}
 load_tables = True #Read source tables into objects  (see classes representing a patient)
-write = True #write or update a txt file by health department wih human-readible patients represented as events ordered by time
-tagtog = True #write or update annotable files in TagTog format
-profile = False #profile source tables generating html reports
-serialize = True #serialize patient objects into json files (see classes representing a patient)
+write = False #write or update a txt file by health department wih human-readible patients represented as events ordered by time
+tagtog = False #write or update annotable files in TagTog format
+profile = True #profile source tables generating html reports
+serialize = False #serialize patient objects into json files (see classes representing a patient)
 
 
-areas = ['01']
+
 areas = list_areas #filter areas if needed
-
+areas = ['08']
 if load_tables:
     for dh in path.iterdir(): #iterate health departments
         area = dh.name if dh.suffix == '' else '' 
