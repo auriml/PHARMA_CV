@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[24]:
 
 
 from utils import *
@@ -20,14 +20,17 @@ pd.set_option('display.max_rows', 50)
 pd.set_option('display.max_columns', 170)
 pd.set_option('display.max_colwidth', 100000)
 import numpy as np
+from datatable import (dt, f, by, ifelse, update, sort,
+                       count, min, max, mean, sum, rowsum)
 
 import sklearn.metrics as skm
 from concurrent.futures import ProcessPoolExecutor
 
 
 # ## Create and save a single big datatable from a dictionary of patients
+# ### PRE-REQUIREMENT: preloaded dictionary of patients
 
-# In[2]:
+# In[25]:
 
 
 def patient_to_table(item):
@@ -36,9 +39,12 @@ def patient_to_table(item):
     events = p.events
     p1 = p.__dict__.copy()
     del p1['_events']
-    p1['_health_dep'] = '01'
+    p1['_health_dep'] = area
     d = dt.Frame([{**e.__dict__, **p1} for e in events])
-    d[:, [f._start_date,f._end_date,f._limits] ]= d[:, [dt.str32(f._start_date),dt.str32(f._end_date),dt.str32(f._limits)]]
+    try:
+        d[:, [f._start_date,f._end_date,f._limits] ]= d[:, [dt.str32(f._start_date),dt.str32(f._end_date),dt.str32(f._limits)]]
+    except:
+        raise print(d)
     return d
 
 def create_big_table(pdict, file = 'bigTable'):
@@ -51,6 +57,7 @@ def create_big_table(pdict, file = 'bigTable'):
 
 
 # ## Load patient objects from json files and return a dictionary of patients
+# ### PRE-REQUIREMENT: 1º step generated json files
 
 # In[5]:
 
@@ -75,9 +82,10 @@ def load_objects(): #read from json into patient objects and return a dictionary
     return pdict
 
 
-# ## Load source tables, create patient objects, return a dictionary of patients and serialize patients to json files
+# ## 1º Step: Read source tables, create patient objects, return a dictionary of patients and serialize patients to json files
+# ### PRE-REQUIREMENT: directory with source tables 
 
-# In[3]:
+# In[8]:
 
 
 # define loaders functions one for each table as provided form source 
@@ -318,6 +326,12 @@ def drug(g,pdict ):
         elist = [Medication(e.fecha_administracion_paciente, 
                         end_date=e.fecha_fin , event_type='Medication', event_value=e.principio_activo, dose = e.dosis, unit = e.unidad_medida, freq = e.frecuencia, route = e.forma_administracion, atc=e.atc 
                        ) for i,e in g.iterrows() if len(str(e.fecha_administracion_paciente))>10]
+        
+        if (len(elist) == 0 ): #fecha_administracion_paciente is not available, then fecha_inicio should be used instead
+            elist = [Medication(e.fecha_inicio, 
+                        end_date=e.fecha_fin , event_type='Medication', event_value=e.principio_activo, dose = e.dosis, unit = e.unidad_medida, freq = e.frecuencia, route = e.forma_administracion, atc=e.atc 
+                       ) for i,e in g.iterrows() if len(str(e.fecha_inicio))>10]
+            
         p.events.extend(elist)
         
         
@@ -329,31 +343,33 @@ def drug(g,pdict ):
     return pdict
 
 
-# In[4]:
+# In[10]:
 
 
 path = Path('datos_7') #path to data tables as provided from source
-print(list(path.iterdir()))
+list_areas = [dh.name for dh in path.iterdir() if dh.suffix == '']
+print(list_areas)
 
 
-# In[8]:
+# In[12]:
 
 
 dfs = {}
 plist = []  
 pdict = {}
-load_tables = False #Read source tables into objects  (see classes representing a patient)
-write = False #write or update a txt file by health department wih human-readible patients represented as events ordered by time
-tagtog = False #write or update annotable files in TagTog format
-profile = True #profile source tables generating html reports
-serialize = False #serialize patient objects into json files (see classes representing a patient)
+load_tables = True #Read source tables into objects  (see classes representing a patient)
+write = True #write or update a txt file by health department wih human-readible patients represented as events ordered by time
+tagtog = True #write or update annotable files in TagTog format
+profile = False #profile source tables generating html reports
+serialize = True #serialize patient objects into json files (see classes representing a patient)
 
-areas = ['08','06','05','18','01','17','19']
+
 areas = ['01']
+areas = list_areas #filter areas if needed
 
 if load_tables:
     for dh in path.iterdir(): #iterate health departments
-        area = dh.with_suffix("").name
+        area = dh.name if dh.suffix == '' else '' 
         if area in areas:
             dfs = {}
             plist = []  
@@ -509,4 +525,28 @@ if load_tables:
             
         
         
+
+
+# In[15]:
+
+
+p_dict = load_objects()
+
+
+# In[17]:
+
+
+len(p_dict)
+
+
+# In[26]:
+
+
+create_big_table(p_dict)
+
+
+# In[ ]:
+
+
+
 
