@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[1]:
 
 
 from unidecode import unidecode
@@ -13,7 +13,7 @@ import numpy as np
 import json
 
 
-# In[6]:
+# In[4]:
 
 
 class Event(object):
@@ -24,6 +24,24 @@ class Event(object):
         self.event_value = event_value
         self.health_dep = health_dep
         
+    @property #usually same as the class type but may change to differentitate subtyes of Events that share the same class type
+    def event_type(self):  
+        return self._event_type
+    
+    @event_type.setter 
+    def event_type(self, event_type):
+        self._event_type = event_type
+        
+    
+    @property
+    def event_value(self): 
+        return self._event_value
+    
+    @event_value.setter 
+    def event_value(self, event_value): 
+        self._event_value = event_value 
+       
+    
     
     @property #health department
     def health_dep(self):  
@@ -67,7 +85,7 @@ class Event(object):
     
 
 
-# In[7]:
+# In[8]:
 
 
 class Vs(Event):
@@ -79,7 +97,15 @@ class Vs(Event):
         self.event_type = event_type
         self.event_value = event_value
         self.health_dep = health_dep
-        
+    
+    @property
+    def hour(self): 
+        return self._hour
+    
+    @hour.setter 
+    def hour(self, hour):
+        self._hour = hour
+    
        
     @property
     def start_date(self): 
@@ -204,7 +230,8 @@ class Medication(Event):
     
     @dose.setter 
     def dose(self, d): 
-        if (self.event_type == 'Fluid'): #obtain vol/duration in ml/h 
+        if (self.event_type == 'Fluid'): #obtain vol/duration in ml/h  
+            #TODO: if not v then extract volumen from 'nemonico' field
             try:
                 
                 v,h = d[0], d[1]
@@ -305,12 +332,21 @@ class Lab(Event):
         self.event_value = event_value
         self.unit = unit
         self.limits = limits
-        #print(limits, self.limits)
         self.norm_value = norm_value
-        if (norm_value == None) and isinstance(self.limits, list): 
-            self.norm_value =  normalize_value( self.event_value, self.limits[0], self.limits[1]) 
+         
         
+    
             
+    @property
+    def norm_value(self): 
+        return self._norm_value
+    
+    @norm_value.setter 
+    def norm_value(self, norm_value): #normalized value
+        if (norm_value == None) and isinstance(self.limits, list): 
+            self._norm_value =  normalize_value( self.event_value, self.limits[0], self.limits[1])
+        else:
+            self._norm_value = norm_value 
     
             
     
@@ -404,8 +440,8 @@ class Report(Event):
     
 class Image(Event):
     def __init__(self, start_date, end_date=None, event_type=None, event_value=None, cui_list = None, label_locs = None, health_dep = None):
-        self.date = eval(start_date)[0]
-        super().__init__(self.date, end_date, event_type, event_value, health_dep)
+        self._anon_date = eval(start_date)[0]
+        super().__init__(self._anon_date, end_date, event_type, event_value, health_dep)
         #undo days shift
         self.start_date = self.start_date + timedelta(days=10)
         self.event_value = event_value
@@ -493,7 +529,7 @@ class Scale(Event):
         return m
 
 
-# In[4]:
+# In[9]:
 
 
 class Patient(object): 
@@ -504,6 +540,13 @@ class Patient(object):
         self.events = [] if events == None else events
     
     
+    @property
+    def patient_id(self): 
+        return self._patient_id
+    
+    @patient_id.setter 
+    def patient_id(self,patient_id ):
+        self._patient_id = patient_id
         
     @property
     def age(self): 
@@ -553,6 +596,12 @@ class Patient(object):
     def __repr__(self):
         return f"{self.patient_id} is a {self.age} years old {self.gender}"
     
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
