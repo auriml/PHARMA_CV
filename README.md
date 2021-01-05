@@ -28,7 +28,7 @@ The code on this repository is organized in python modules:
 3. Create and save a single big datatable from a dictionary of patients
 > PRE-REQUIREMENT: preloaded dictionary of patients
 
-> OUT: A table 'out_EDA/bigTable.jay' with 3M events (rows) from 4.5K patients with clinical information condensed in 25 columns. 
+> OUT: A table 'out_EDA/bigTable.jay' with 3M events (rows) from 4.5K patients with all clinical information condensed in 24 columns. 
 *('_start_date',
  '_end_date',
  '_event_type',
@@ -57,7 +57,7 @@ The code on this repository is organized in python modules:
 - **Classes.py:**
 > Class patient has attributes 'patient_id', 'age', 'gender', 'events=L(Event)'. 
 
-> Each Event has attributes 'start_date', 'end_date', 'event_type', 'event_value', 'health_dep=L(12 health departments)'. Any clinical information is modeled as an Event and hence inherits from it. There are the following type of events which expand with their own attributes: 
+> Each Event has attributes 'start_date', 'end_date', 'event_type', 'event_value', 'health_dep=L(12 health departments)'. All clinical information is modeled as an Event and hence inherits from it. Each type of events expands with their own attributes. Events can be of any of the fhe following types: 
 >> State Admission (in hospital)
 
 >> State Bed (any hospital service)
