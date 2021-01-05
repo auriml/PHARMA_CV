@@ -31,29 +31,28 @@ The code on this repository is organized in python modules:
 > OUT: A table 'out_EDA/bigTable.jay' with 3M events (rows) from 4.5K patients with clinical information condensed in 25 columns. 
 *('_start_date',
  '_end_date',
- 'event_type',
+ '_event_type',
  '_event_value',
  '_health_dep',
  '_test_name',
  '_unit',
  '_limits',
- 'norm_value',
- 'patient_id',
+ '_norm_value',
+ '_patient_id',
  '_age',
  '_gender',
- 'event_value',
- 'date',
+ '_anon_date',
  '_cui_list',
  '_label_locs',
- 'hour',
+ '_hour',
  '_vs_name',
  '_method',
- '_desc',
- '_scale_name',
  '_dose',
  '_freq',
  '_route',
- '_atc')* 
+ '_atc',
+ '_desc',
+ '_scale_name')* 
 
 - **Classes.py:**
 > Class patient has attributes 'patient_id', 'age', 'gender', 'events=L(Event)'. 
