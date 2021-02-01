@@ -1,8 +1,7 @@
-#!/usr/bin/env python
+
 # coding: utf-8
 
-# In[13]:
-
+# In[1]:
 
 import pandas as pd
 from terminology import ATC, ICD_df
@@ -13,7 +12,6 @@ from classes import *
 
 # In[2]:
 
-
 #generate ATC dictionary file in tagtog format
 atc_df = pd.DataFrame({'k': ATC.keys(), 'v': ATC.values()})
 atc_df['s'] = atc_df.v.apply(lambda x: '\t'.join(x)  if type(x) == list else '')
@@ -23,8 +21,7 @@ atc_df1 = atc_df1[atc_df1.index != 'V03AN01'] #remove 'oxigeno' as drug
 atc_df1.to_csv('TagTog/Dictionaries/atc.tsv',  header = False, sep = '\t')
 
 
-# In[3]:
-
+# In[ ]:
 
 #generate ICD dictionary file in tagtog format
 ICD_df.cie10_des = ICD_df.cie10_des.str.strip() 
@@ -55,14 +52,13 @@ ICD_df.to_csv('TagTog/Dictionaries/cie10.tsv', index = False, header = False, se
 # ```
 # 
 
-# In[ ]:
-
+# In[2]:
 
 #tagtog documents
 
-def write_tagtog_docs(area, plist):
-    t = Path('TagTog')
-
+def write_tagtog_docs(area, plist, file = None):
+    t = Path('TagTog') if not file else Path(file)
+   
     if not os.path.exists(t/area):
         os.makedirs(t/area)
 
@@ -89,7 +85,6 @@ def write_tagtog_docs(area, plist):
 
 
 # In[ ]:
-
 
 
 

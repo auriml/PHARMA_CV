@@ -326,9 +326,10 @@ class Oxigen(Event):
     
     
 class Lab(Event):
-    def __init__(self, start_date, end_date=None, event_type='Lab', test_name = None, event_value=None, unit = None, limits = None, health_dep = None, norm_value = None):
+    def __init__(self, start_date, end_date=None, event_type='Lab', test_name = None, event_value=None, unit = None, limits = None, health_dep = None, norm_value = None, test_code = None):
         super().__init__(start_date, end_date, event_type, event_value, health_dep)
         self.test_name = test_name
+        self.test_code = test_code
         self.event_value = event_value
         self.unit = unit
         self.limits = limits
@@ -375,7 +376,14 @@ class Lab(Event):
             pass
         self._test_name = t
             
+    @property
+    def test_code(self): 
+        return self._test_code
+    
+    @test_code.setter 
+    def test_code(self, tc): 
         
+        self._test_code = tc    
     
     @property
     def unit(self): 
@@ -440,10 +448,14 @@ class Report(Event):
     
 class Image(Event):
     def __init__(self, start_date, end_date=None, event_type=None, event_value=None, cui_list = None, label_locs = None, health_dep = None):
-        self._anon_date = eval(start_date)[0]
-        super().__init__(self._anon_date, end_date, event_type, event_value, health_dep)
-        #undo days shift
-        self.start_date = self.start_date + timedelta(days=10)
+        source_RIS = True
+        if source_RIS == False: #covid image project had anonimized dates with a temporal shift
+            self._anon_date = eval(start_date)[0]
+            super().__init__(self._anon_date, end_date, event_type, event_value, health_dep)
+            #undo days shift
+            self.start_date = self.start_date + timedelta(days=10)
+        else: #if RIS source
+            super().__init__(start_date, end_date, event_type, event_value, health_dep)
         self.event_value = event_value
         self.cui_list = cui_list
         self.label_locs = label_locs
